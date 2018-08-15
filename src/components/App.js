@@ -1,32 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import dom2image from 'dom-to-image';
 import fileSaver from 'file-saver';
 import styles from './App.css';
 
 
 class App extends Component {
-
+  
   state = {
     content: 'Take me to campsite #7!',
+    cow: 'default',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
-
+  
   handleContentChange = (content = ' ') => {
     this.setState({ content });
   };
-
+  
   handleBackgroundChoose = (url = '') => {
     this.setState({ url });
   };
-
+  
   handleExport = () => {
     dom2image.toBlob(this.image)
       .then(blob => {
         fileSaver.saveAs(blob, 'cute-cowsay.png');
       });
   };
-
-
+  
+  
   render() {
     const { content, url } = this.state;
 
@@ -56,7 +57,9 @@ class App extends Component {
 function Meme({ content, url }) {
 
   return (
-    <pre style={{ background: `url(${url}) no-repeat` }}>{content}</pre> 
+    <Fragment>
+      <pre style={{ background: `url(${url}) no-repeat ` }}>{content}</pre> 
+    </Fragment>
   );
 }
 
