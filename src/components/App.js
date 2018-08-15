@@ -7,7 +7,8 @@ import styles from './App.css';
 class App extends Component {
 
   state = {
-    content: ' ',
+    content: 'Take me to campsite #7!',
+    cow: 'default',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
 
@@ -22,7 +23,7 @@ class App extends Component {
   handleExport = () => {
     dom2image.toBlob(this.image)
       .then(blob => {
-        fileSaver.saveAs(blob, 'racoon.jpg');
+        fileSaver.saveAs(blob, 'cute-cowsay.png');
       });
   };
 
@@ -35,11 +36,10 @@ class App extends Component {
         <section>
           <h2>Set Options</h2>
           <Content content={content} onChange={this.handleContentChange}/>
-
           <Background url={url} onChoose={this.handleBackgroundChoose}/>
         </section> 
 
-        <section className="meme">
+        <section className="cow-say">
           <h2>Behold Your Meme!</h2>
           <p ref={node => this.image = node}>
             <Meme content={content} url={url}/>
@@ -55,14 +55,10 @@ class App extends Component {
 }
 
 function Meme({ content, url }) {
-  
-  const memeSaid = meme.say({
-    text: content || ' ',
-  });
 
   return (
     <Fragment>
-      <pre style={{ background: `url(${url})` }}>{memeSaid}</pre> 
+      <pre style={{ background: `url(${url}) no-repeat ` }}>{content}</pre> 
     </Fragment>
   );
 }
