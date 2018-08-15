@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import dom2image from 'dom-to-image';
 import fileSaver from 'file-saver';
 import styles from './App.css';
@@ -8,7 +8,6 @@ class App extends Component {
 
   state = {
     content: 'Take me to campsite #7!',
-    cow: 'default',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
 
@@ -37,15 +36,15 @@ class App extends Component {
           <h2>Set Options</h2>
           <Content content={content} onChange={this.handleContentChange}/>
           <Background url={url} onChoose={this.handleBackgroundChoose}/>
+          <p>
+            <button onClick={this.handleExport}>Export</button>
+          </p>
         </section> 
 
         <section className="cow-say">
           <h2>Behold Your Meme!</h2>
           <p ref={node => this.image = node}>
             <Meme content={content} url={url}/>
-          </p>
-          <p>
-            <button onClick={this.handleExport}>Export</button>
           </p>
         </section>
 
