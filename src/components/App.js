@@ -8,7 +8,6 @@ class App extends Component {
   
   state = {
     content: 'Take me to campsite #7!',
-    cow: 'default',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
   
