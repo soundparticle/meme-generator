@@ -15,7 +15,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: `./${buildDir}`,
+    contentBase: './docs',
   },
   plugins: [
     new CleanPlugin(`${path}/bundle.*.js`),
