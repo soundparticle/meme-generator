@@ -57,9 +57,7 @@ class App extends Component {
 function Meme({ content, url }) {
 
   return (
-    <Fragment>
-      <pre style={{ background: `url(${url}) no-repeat ` }}>{content}</pre> 
-    </Fragment>
+    <pre style={{ background: `url(${url}) no-repeat` }}>{content}</pre> 
   );
 }
 
