@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <main className={styles.app}>
         <section>
-          <h2>Set Options</h2>
+          <h1>Set Options</h1>
           <Content content={content} onChange={this.handleContentChange}/>
           <Background url={url} onChoose={this.handleBackgroundChoose}/>
           <p>
@@ -42,7 +42,7 @@ class App extends Component {
         </section> 
 
         <section className="cow-say">
-          <h2>Behold Your Meme!</h2>
+          <h2>Memes Of The Imagination</h2>
           <p ref={node => this.image = node}>
             <Meme content={content} url={url}/>
           </p>
