@@ -51,10 +51,11 @@ class App extends Component {
       <main className={styles.app}>
         <section>
           <h1>Set Options</h1>
-          <Background url={url} onChoose={this.handleBackgroundChoose} color={color}/>
-          <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color}/>
+          <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
+          <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
           {/* <Meme memeHeader={memeHeader} url={url} color={color} textSize={textSize}/> */}
           <label>Choose Font Color:<input type="color" value={color} onChange={this.handleColorChange}/></label>
+          <label>Choose Font Size:<input type="text" value={textSize} onChange={this.handleTextChange}/></label>
           <p>
             <button onClick={this.handleExport}>Export</button>
           </p>
@@ -62,7 +63,7 @@ class App extends Component {
 
         <section className="cow-say">
           <h2 style={{ color: color }}>Memes Of The Imagination</h2>
-          <Meme content={memeHeader} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
           <p ref={node => this.image = node}>
           </p>
         </section>
