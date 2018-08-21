@@ -51,8 +51,8 @@ class App extends Component {
       <main className={styles.app}>
         <section>
           <h1>Set Options</h1>
-          <Background url={url} onChoose={this.handleBackgroundChoose}/>
-          <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader}/>
+          <Background url={url} onChoose={this.handleBackgroundChoose} color={color}/>
+          <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color}/>
           {/* <Meme memeHeader={memeHeader} url={url} color={color} textSize={textSize}/> */}
           <label>Choose Font Color:<input type="color" value={color} onChange={this.handleColorChange}/></label>
           <p>
@@ -62,7 +62,7 @@ class App extends Component {
 
         <section className="cow-say">
           <h2 style={{ color: color }}>Memes Of The Imagination</h2>
-          <Meme content={content} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          <Meme content={memeHeader} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
           <p ref={node => this.image = node}>
           </p>
         </section>
