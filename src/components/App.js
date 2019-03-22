@@ -50,6 +50,7 @@ class App extends Component {
     return (
       <main className={styles.app}>
 
+        
         <section className="cow-say">
           <h2 style={{ color: color }}>Memes Of The Imagination</h2>
           <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
@@ -84,17 +85,23 @@ function Meme({ content, url, memeHeader, color, textSize }) {
   );
 }
 
+// Set Options
+//
 function Background({ url, onChoose }) {
   return (
-    <label>
-      Background:
-      <input value={url} onChange={({ target }) => onChoose(target.value)}/>
-      <input type="file" onChange={({ target }) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(target.files[0]);
-        reader.onload = () => onChoose(reader.result);
-      }}/>
-    </label>
+    <section>
+      <label>
+        Background:
+        <input type="file" onChange={({ target }) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(target.files[0]);
+          reader.onload = () => onChoose(reader.result);
+        }}/>
+        <span>
+          <input value={url} onChange={({ target }) => onChoose(target.value)}/>
+        </span>
+      </label>
+    </section>
   );
 }
 
@@ -102,7 +109,7 @@ function Content({ content, onChange }) {
   return (
     <p>
       <label >
-        Content: 
+        Text Content: 
         <input 
           value={content} 
           onChange={({ target }) => onChange(target.value)}
