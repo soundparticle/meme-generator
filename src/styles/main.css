@@ -33,6 +33,7 @@ label {
 input {
   border-color: red;
   padding: 5px;
+  // width: 80px;
 }
 
 section {

@@ -52,14 +52,14 @@ class App extends Component {
 
         
         <section className="cow-say">
-          <h2 style={{ color: color }}>Memes Of The Imagination</h2>
-          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          <h2>Memes Of The Imagination</h2>
           <p ref={node => this.image = node}>
           </p>
         </section>
 
-        <section>
+        <div>
           <h1>Set Options</h1>
+          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
           <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
           <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
           {/* <Meme memeHeader={memeHeader} url={url} color={color} textSize={textSize}/> */}
@@ -68,7 +68,7 @@ class App extends Component {
           <p>
             <button onClick={this.handleExport}>Export</button>
           </p>
-        </section> 
+        </div> 
 
       </main>
     );
@@ -80,7 +80,7 @@ function Meme({ content, url, memeHeader, color, textSize }) {
   return (
     <div>
       <h1 id="meme-header" style={{ color: color }}><font size={textSize}>{memeHeader}</font></h1> 
-      <pre id="meme" className="meme-container" style={{ background: `url(${url}) no-repeat ` }}>{content}</pre>
+      <pre id="meme" className="meme-container" style={{ color: color, background: `url(${url}) no-repeat ` }}>{content}</pre>
     </div>
   );
 }
@@ -89,32 +89,36 @@ function Meme({ content, url, memeHeader, color, textSize }) {
 //
 function Background({ url, onChoose }) {
   return (
-    <section>
+    <div>
       <label>
         Background:
-        <input type="file" onChange={({ target }) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(target.files[0]);
-          reader.onload = () => onChoose(reader.result);
-        }}/>
+        <span>
+          <input type="file" onChange={({ target }) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(target.files[0]);
+            reader.onload = () => onChoose(reader.result);
+          }}/>
+        </span>
         <span>
           <input value={url} onChange={({ target }) => onChoose(target.value)}/>
         </span>
       </label>
-    </section>
+    </div>
   );
 }
 
 function Content({ content, onChange }) {
   return (
     <p>
-      <label >
-        Text Content: 
-        <input 
-          value={content} 
-          onChange={({ target }) => onChange(target.value)}
-        />
-      </label>
+      <div>
+        <label >
+          Text Content: 
+          <input 
+            value={content} 
+            onChange={({ target }) => onChange(target.value)}
+          />
+        </label>
+      </div>
     </p>
   );  
 }
