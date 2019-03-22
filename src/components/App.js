@@ -49,6 +49,14 @@ class App extends Component {
 
     return (
       <main className={styles.app}>
+
+        <section className="cow-say">
+          <h2 style={{ color: color }}>Memes Of The Imagination</h2>
+          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          <p ref={node => this.image = node}>
+          </p>
+        </section>
+
         <section>
           <h1>Set Options</h1>
           <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
@@ -61,12 +69,6 @@ class App extends Component {
           </p>
         </section> 
 
-        <section className="cow-say">
-          <h2 style={{ color: color }}>Memes Of The Imagination</h2>
-          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
-          <p ref={node => this.image = node}>
-          </p>
-        </section>
       </main>
     );
   }
