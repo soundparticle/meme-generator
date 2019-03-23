@@ -15,7 +15,6 @@ h1 {
   font-size: 20px;
 }
 
-
 h2 {
   text-align: center;
   font-size: 40px;
@@ -28,26 +27,34 @@ h2 {
   display: flex;
   justify-content: space-evenly;
 }
+
 label {
-  // padding: 50px;
-  // display: inline;
-  // margin-left: 10px;
+  border-color: black;
 }
 
 input {
-  border-color: red;
+  border-color: black;
   border-radius: 8px;
   padding: 4px;
-  // padding-bottom: 8px;
-  // margin-left: 10px;
+  padding-bottom: 8px;
+  margin-top: 5px;
   font-size: 14px;
 }
 
 button {
   padding: 5px;
-  // padding-top: 5px;
+  margin-top: 10px;
+  font-size: 14px;
   background-color: lightgreen;
   border-radius: 25px;
+  border-width: 1.5px;
   border-color: black;
 }
 
+hr {
+  border-width: 2px;
+  border-color: rgb(255, 247, 0);
+  background-color: rgb(255, 247, 0);
+  width: 1000%;
+  margin-left: -500%;
+}

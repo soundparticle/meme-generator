@@ -49,7 +49,6 @@ class App extends Component {
 
     return (
       <main className={styles.app}>
-
         
         <section className="cow-say">
           <h2>Memes Of The Imagination</h2>
@@ -57,7 +56,7 @@ class App extends Component {
           </p>
         </section>
 
-        <div>
+        <section>
           <h1>Set Options</h1>
           <section className="set-options">
             <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
@@ -69,9 +68,10 @@ class App extends Component {
           {/* TODO: Make these labels into compononets */}
           
           <button onClick={this.handleExport}>Export Meme</button>
+          <hr></hr>
           
           <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
-        </div> 
+        </section> 
 
       </main>
     );
@@ -87,7 +87,6 @@ function Meme({ content, url, memeHeader, color, textSize }) {
     </div>
   );
 }
-
 // Set Options
 //
 function Background({ url, onChoose }) {
