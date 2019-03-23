@@ -59,17 +59,16 @@ class App extends Component {
 
         <div>
           <h1>Set Options</h1>
-          <label>
-            <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
-          </label>
-          <label>
+          <section className="set-options">
             <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
-          </label>
-          {/* TODO: Make these labels into compononets */}
-          <label>Choose Font Size:<input type="text" value={textSize} onChange={this.handleTextChange}/></label>
-          <label>Choose Font Color:<input type="color" value={color} onChange={this.handleColorChange}/></label>
+            <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+            <label>Choose Font Size:<input type="text" value={textSize} onChange={this.handleTextChange}/></label>
+            <label>Choose Font Color:<input type="color" value={color} onChange={this.handleColorChange}/></label>
+          </section>
           
-          <button onClick={this.handleExport}>Export</button>
+          {/* TODO: Make these labels into compononets */}
+          
+          <button onClick={this.handleExport}>Export Meme</button>
           
           <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
         </div> 
@@ -113,16 +112,14 @@ function Background({ url, onChoose }) {
 
 function Content({ content, onChange }) {
   return (
-    <div>
-      <p>
-        <label>
-          Text Content: 
-          <input 
-            value={content} 
-            onChange={({ target }) => onChange(target.value)}
-          />
-        </label>
-      </p>
+    <div>      
+      <label>
+        Text Content: 
+        <input 
+          value={content} 
+          onChange={({ target }) => onChange(target.value)}
+        />
+      </label>
     </div>
   );  
 }
