@@ -7,7 +7,7 @@ import styles from './App.css';
 class App extends Component {
   
   state = {
-    content: 'Take me to campsite #7!',
+    content: 'Choose your phrase here...',
     memeHeader: 'Take me to campsite #666',
     color: '#ffffff',
     textSize: '6',
@@ -16,7 +16,7 @@ class App extends Component {
 
   handleHeaderChange = ({ target }) => {
     this.setState({
-      memeHeader: target.value
+      memeHeader: target.value,
     });
   };
 
@@ -28,6 +28,14 @@ class App extends Component {
     this.setState({ url });
   };
   
+  handleColorChange = ({ target }) => {
+    this.setState({ color: target.value });
+  };
+
+  handleTextChange = ({ target }) => {
+    this.setState({ textSize: target.value });
+  };
+  
   handleExport = () => {
     // const meme = document.getElementById('meme');
     dom2image.toBlob(this.image)
@@ -35,14 +43,6 @@ class App extends Component {
         fileSaver.saveAs(blob, 'my-meme.png');
       });
   };
-
-  handleColorChange = ({ target }) => {
-    this.setState({ color: target.value });
-  };
-  handleTextChange = ({ target }) => {
-    this.setState({ textSize: target.value });
-  };
-  
   
   render() {
     const { content, url, memeHeader, color, textSize } = this.state;
@@ -59,15 +59,19 @@ class App extends Component {
 
         <div>
           <h1>Set Options</h1>
-          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
-          <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
-          <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
-          {/* <Meme memeHeader={memeHeader} url={url} color={color} textSize={textSize}/> */}
-          <label>Choose Font Color:<input type="color" value={color} onChange={this.handleColorChange}/></label>
+          <label>
+            <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+          </label>
+          <label>
+            <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
+          </label>
+          {/* TODO: Make these labels into compononets */}
           <label>Choose Font Size:<input type="text" value={textSize} onChange={this.handleTextChange}/></label>
-          <p>
-            <button onClick={this.handleExport}>Export</button>
-          </p>
+          <label>Choose Font Color:<input type="color" value={color} onChange={this.handleColorChange}/></label>
+          
+          <button onClick={this.handleExport}>Export</button>
+          
+          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
         </div> 
 
       </main>
@@ -80,7 +84,7 @@ function Meme({ content, url, memeHeader, color, textSize }) {
   return (
     <div>
       <h1 id="meme-header" style={{ color: color }}><font size={textSize}>{memeHeader}</font></h1> 
-      <pre id="meme" className="meme-container" style={{ color: color, background: `url(${url}) no-repeat ` }}>{content}</pre>
+      <pre id="meme" className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>{content}</pre>
     </div>
   );
 }
@@ -109,17 +113,17 @@ function Background({ url, onChoose }) {
 
 function Content({ content, onChange }) {
   return (
-    <p>
-      <div>
-        <label >
+    <div>
+      <p>
+        <label>
           Text Content: 
           <input 
             value={content} 
             onChange={({ target }) => onChange(target.value)}
           />
         </label>
-      </div>
-    </p>
+      </p>
+    </div>
   );  
 }
 
