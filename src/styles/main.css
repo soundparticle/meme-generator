@@ -55,6 +55,16 @@ hr {
   border-width: 2px;
   border-color: rgb(255, 247, 0);
   background-color: rgb(255, 247, 0);
-  width: 1000%;
+  // width: 1000%;
   margin-left: -500%;
+}
+
+.meme {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.meme-container {
+
 }

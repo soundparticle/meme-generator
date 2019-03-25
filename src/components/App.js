@@ -44,6 +44,7 @@ class App extends Component {
       });
   };
   
+  
   render() {
     const { content, url, memeHeader, color, textSize } = this.state;
 
@@ -52,8 +53,7 @@ class App extends Component {
         
         <section className="cow-say">
           <h2>Memes Of The Imagination</h2>
-          <p ref={node => this.image = node}>
-          </p>
+          <p ref={node => this.image = node}></p>
         </section>
 
         <section>
@@ -81,7 +81,7 @@ class App extends Component {
 function Meme({ content, url, memeHeader, color, textSize }) {
 
   return (
-    <div>
+    <div className="meme">
       <h1 id="meme-header" style={{ color: color }}><font size={textSize}>{memeHeader}</font></h1> 
       <pre id="meme" className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>{content}</pre>
     </div>
