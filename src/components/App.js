@@ -61,8 +61,10 @@ class App extends Component {
           <section className="set-options">
             <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
             <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
-            <label>Choose Font Size:<input type="text" value={textSize} onChange={this.handleTextChange}/></label>
-            <label>Choose Font Color:<input type="color" value={color} onChange={this.handleColorChange}/></label>
+            <label>Choose Font Size:
+              <input type="text" value={textSize} onChange={this.handleTextChange}/></label>
+            <label>Choose Font Color:
+              <input type="color" value={color} onChange={this.handleColorChange}/></label>
           </section>
           
           {/* TODO: Make these labels into compononets */}
@@ -82,8 +84,12 @@ function Meme({ content, url, memeHeader, color, textSize }) {
 
   return (
     <div className="meme">
-      <h1 id="meme-header" style={{ color: color }}><font size={textSize}>{memeHeader}</font></h1> 
-      <pre id="meme" className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>{content}</pre>
+      <h1 id="meme-header" style={{ color: color }}>
+        <font size={textSize}>{memeHeader}</font> 
+      </h1> 
+      <pre id="meme"className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>
+        <font size={textSize}>{content}</font>
+      </pre>
     </div>
   );
 }
@@ -122,5 +128,6 @@ function Content({ content, onChange }) {
     </div>
   );  
 }
+
 
 export default App;
