@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box;   
+  box-sizing: border-box;
+  // padding: 30px;   
 }
 
 body {
@@ -25,17 +26,18 @@ h2 {
 
 .set-options {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 label {
   border-color: black;
+  padding: 20px;
 }
 
 input {
   border-color: black;
   border-radius: 8px;
-  padding: 4px;
+  padding: 8px;
   padding-bottom: 8px;
   margin-top: 5px;
   font-size: 14px;

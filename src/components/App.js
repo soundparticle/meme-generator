@@ -8,19 +8,17 @@ class App extends Component {
   
   state = {
     content: 'Choose your phrase here...',
-    memeHeader: 'Take me to campsite #666',
-    color: '#ffffff',
+    memeHeader: 'Header text here!',
+    color: 'black',
     textSize: '6',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
 
-  handleHeaderChange = ({ target }) => {
-    this.setState({
-      memeHeader: target.value,
-    });
+  handleHeaderChange = (memeHeader = '') => {
+    this.setState({ memeHeader });
   };
 
-  handleContentChange = (content = ' ') => {
+  handleContentChange = (content = '') => {
     this.setState({ content }); 
   };
   
@@ -61,6 +59,8 @@ class App extends Component {
           <section className="set-options">
             <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
             <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+            <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/>
+            
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/></label>
             <label>Choose Font Color:
@@ -72,7 +72,7 @@ class App extends Component {
           <button onClick={this.handleExport}>Export Meme</button>
           <hr></hr>
           
-          <Meme style={{ color: color }} content={content} url={url} memeHeader={content} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          <Meme style={{ color: color }} content={content} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
         </section> 
 
       </main>
@@ -85,6 +85,7 @@ function Meme({ content, url, memeHeader, color, textSize }) {
   return (
     <div className="meme">
       <h1 id="meme-header" style={{ color: color }}>
+        
         <font size={textSize}>{memeHeader}</font> 
       </h1> 
       <pre id="meme"className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>
@@ -117,15 +118,29 @@ function Background({ url, onChoose }) {
 
 function Content({ content, onChange }) {
   return (
-    <div>      
+    <section>      
       <label>
-        Text Content: 
+        Choose Text Content: 
         <input 
           value={content} 
           onChange={({ target }) => onChange(target.value)}
         />
       </label>
-    </div>
+    </section>
+  );  
+}
+
+function Header({ memeHeader, onChange }) {
+  return (
+    <section>      
+      <label>
+        Choose Header Content: 
+        <input 
+          value={memeHeader} 
+          onChange={({ target }) => onChange(target.value)}
+        />
+      </label>
+    </section>
   );  
 }
 
