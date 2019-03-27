@@ -59,14 +59,15 @@ class App extends Component {
             <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
             <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
-          </section>
-          <section>
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/>
             </label>
             <label>Choose Font Color:
               <input type="color" value={color} onChange={this.handleColorChange}/>
             </label>
+          </section>
+            
+          <section>
           </section>
           
           <button onClick={this.handleExport}>Export Meme</button>

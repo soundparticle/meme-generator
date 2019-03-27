@@ -16,6 +16,7 @@ body {
 
 h1 {
   font-size: 20px;
+  text-align: center;
 }
 
 h2 {
@@ -26,23 +27,9 @@ h2 {
   text-shadow: 1px 1px 0px black, 0 0 25px blue, 0 0 10px darkblue;
 }
 
-.set-options {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: space-around;
-}
-
-section {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-label {
-  // display: flex;
-  // margin-left: 10px;
-  border-color: black;
-  padding: 20px;
+#options-group {
+  margin-left: 80px;
+  align-content: center;
 }
 
 input {
@@ -69,8 +56,8 @@ hr {
   border-width: 2px;
   border-color: rgb(255, 247, 0);
   background-color: rgb(255, 247, 0);
-  // width: 1000%;
-  margin-left: -500%;
+  margin: 20px -20px 20px;
+  // margin-left: -500%;
 }
 
 .meme {
@@ -78,5 +65,3 @@ hr {
   flex-direction: column;
   align-items: center
 }
-
-
