@@ -7,8 +7,8 @@ import styles from './App.css';
 class App extends Component {
   
   state = {
-    content: 'Choose your phrase here...',
-    memeHeader: 'Header text here!',
+    content: 'Choose your phrase...',
+    memeHeader: 'Header text here...',
     color: 'black',
     textSize: '6',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
@@ -53,26 +53,27 @@ class App extends Component {
           <h2>Memes Of The Imagination</h2>
           <p ref={node => this.image = node}></p>
         </section>
-
         <section>
           <h1>Set Options</h1>
-          <section className="set-options">
+          <section className="set-options" id="options-group">
             <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
             <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
-            <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/>
-            
-            <label>Choose Font Size:
-              <input type="text" value={textSize} onChange={this.handleTextChange}/></label>
-            <label>Choose Font Color:
-              <input type="color" value={color} onChange={this.handleColorChange}/></label>
+            <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
           </section>
-          
-          {/* TODO: Make these labels into compononets */}
+          <section>
+            <label>Choose Font Size:
+              <input type="text" value={textSize} onChange={this.handleTextChange}/>
+            </label>
+            <label>Choose Font Color:
+              <input type="color" value={color} onChange={this.handleColorChange}/>
+            </label>
+          </section>
           
           <button onClick={this.handleExport}>Export Meme</button>
           <hr></hr>
-          
+
           <Meme style={{ color: color }} content={content} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          
         </section> 
 
       </main>
@@ -83,7 +84,7 @@ class App extends Component {
 function Meme({ content, url, memeHeader, color, textSize }) {
 
   return (
-    <div className="meme">
+    <section className="meme">
       <h1 id="meme-header" style={{ color: color }}>
         
         <font size={textSize}>{memeHeader}</font> 
@@ -91,14 +92,14 @@ function Meme({ content, url, memeHeader, color, textSize }) {
       <pre id="meme"className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>
         <font size={textSize}>{content}</font>
       </pre>
-    </div>
+    </section>
   );
 }
 // Set Options
 //
 function Background({ url, onChoose }) {
   return (
-    <div>
+    <section>
       <label>
         Background:
         <span>
@@ -112,7 +113,7 @@ function Background({ url, onChoose }) {
           <input value={url} onChange={({ target }) => onChoose(target.value)}/>
         </span>
       </label>
-    </div>
+    </section>
   );
 }
 
@@ -120,7 +121,7 @@ function Content({ content, onChange }) {
   return (
     <section>      
       <label>
-        Choose Text Content: 
+        Choose Meme Content: 
         <input 
           value={content} 
           onChange={({ target }) => onChange(target.value)}
@@ -134,7 +135,7 @@ function Header({ memeHeader, onChange }) {
   return (
     <section>      
       <label>
-        Choose Header Content: 
+        Choose Header Text: 
         <input 
           value={memeHeader} 
           onChange={({ target }) => onChange(target.value)}

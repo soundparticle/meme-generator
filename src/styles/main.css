@@ -1,3 +1,5 @@
+
+
 * {
   box-sizing: border-box;
   // padding: 30px;   
@@ -27,9 +29,18 @@ h2 {
 .set-options {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  align-content: space-around;
+}
+
+section {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 label {
+  // display: flex;
+  // margin-left: 10px;
   border-color: black;
   padding: 20px;
 }
@@ -37,9 +48,10 @@ label {
 input {
   border-color: black;
   border-radius: 8px;
-  padding: 8px;
-  padding-bottom: 8px;
+  padding: 2px;
+  margin-bottom: 8px;
   margin-top: 5px;
+  margin-left: 10px;
   font-size: 14px;
 }
 
@@ -67,6 +79,4 @@ hr {
   align-items: center
 }
 
-.meme-container {
 
-}
