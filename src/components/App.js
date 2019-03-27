@@ -50,7 +50,9 @@ class App extends Component {
       <main className={styles.app}>
         
         <section className="cow-say">
-          <h2>Memes Of The Imagination</h2>
+          <header>
+            <h2>Memes Of The Imagination</h2>
+          </header>
           <p ref={node => this.image = node}></p>
         </section>
         <section>
@@ -62,6 +64,7 @@ class App extends Component {
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/>
             </label>
+            {/* <br></br> */}
             <label>Choose Font Color:
               <input type="color" value={color} onChange={this.handleColorChange}/>
             </label>
