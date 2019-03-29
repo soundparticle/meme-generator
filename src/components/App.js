@@ -64,15 +64,11 @@ class App extends Component {
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/>
             </label>
-            {/* <br></br> */}
             <label>Choose Font Color:
               <input type="color" value={color} onChange={this.handleColorChange}/>
             </label>
           </section>
-            
-          <section>
-          </section>
-          
+
           <button onClick={this.handleExport}>Export Meme</button>
           <hr></hr>
 
@@ -93,7 +89,7 @@ function Meme({ content, url, memeHeader, color, textSize }) {
         
         <font size={textSize}>{memeHeader}</font> 
       </h1> 
-      <pre id="meme"className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>
+      <pre id="meme" className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>
         <font size={textSize}>{content}</font>
       </pre>
     </section>
