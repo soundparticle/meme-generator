@@ -89,7 +89,9 @@ function Meme({ content, url, memeHeader, color, textSize }) {
         
         <font size={textSize}>{memeHeader}</font> 
       </h1> 
-      <pre id="meme" className="meme-container" size={textSize} style={{ color: color, background: `url(${url}) no-repeat ` }}>
+      <pre id="meme" className="meme-container" size={textSize}
+        
+        style={{ color: color, background: `url(${url}) no-repeat ` }}>
         <font size={textSize}>{content}</font>
       </pre>
     </section>
