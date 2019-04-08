@@ -1,5 +1,11 @@
 :local(.app) {
 
+
+  * {
+    box-sizing: border-box;
+    // padding: 30px;   
+  }
+
   pre {
     // background-repeat: no-repeat;
     // margin: 0;
@@ -13,6 +19,18 @@
     border-width: 2px;
     border-style: solid;
     border-color: black;
+  }
+
+  .set-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    // justify-content: space-evenly;
+    // flex-direction: column;
+  }
+
+  #url-input {
+    // align-items: center;
   }
 
   div {

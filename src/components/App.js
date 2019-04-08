@@ -54,8 +54,7 @@ class App extends Component {
             <h2>Memes Of The Imagination</h2>
           </header>
           {/* <p ref={node => this.image = node}></p> */}
-        </section>
-        <section>
+        
           <h1>Set Options</h1>
           <section className="set-options" id="options-group">
 
@@ -114,11 +113,14 @@ function Background({ url, onChoose }) {
     <section>
       <label>
         Background:
-        <input type="file" onChange={({ target }) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(target.files[0]);
-          reader.onload = () => onChoose(reader.result);
-        }}/>
+        <div>
+          <input id="url-input" type="file" onChange={({ target }) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(target.files[0]);
+            reader.onload = () => onChoose(reader.result);
+          }}/>
+         
+        </div>
         <span>
           <input value={url} onChange={({ target }) => onChoose(target.value)}/>
         </span>
