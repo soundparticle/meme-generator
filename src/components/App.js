@@ -58,7 +58,9 @@ class App extends Component {
         <section>
           <h1>Set Options</h1>
           <section className="set-options" id="options-group">
-            <Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
+            <label>Add Image (400px)
+              url:<Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
+            </label>
             <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
             <label>Choose Font Size:
@@ -71,8 +73,9 @@ class App extends Component {
 
           <button onClick={this.handleExport}>Export Meme</button>
           <hr></hr>
-
-          <Meme style={{ color: color }} content={content} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          <div>
+            <Meme style={{ color: color }} content={content} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+          </div>
           
         </section> 
 
@@ -84,17 +87,18 @@ class App extends Component {
 function Meme({ content, url, memeHeader, color, textSize }) {
 
   return (
-    <section className="meme">
+    <div className="meme">
       <h1 id="meme-header" style={{ color: color }}>
         
         <font size={textSize}>{memeHeader}</font> 
-      </h1> 
+      </h1>
+      {/* <img style={{ color: color, background: `url(${url}) no-repeat ` }}></img>  */}
       <pre id="meme" className="meme-container" size={textSize}
         
         style={{ color: color, background: `url(${url}) no-repeat ` }}>
         <font size={textSize}>{content}</font>
       </pre>
-    </section>
+    </div>
   );
 }
 // Set Options
