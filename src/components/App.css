@@ -1,10 +1,10 @@
 :local(.app) {
 
   pre {
-    background-repeat: no-repeat;
-    margin: 0;
-    display: inline-block;
-    padding: 18px;
+    // background-repeat: no-repeat;
+    // margin: 0;
+    // display: inline-block;
+    padding: 10px;
     width: 600px;
     height: 500px;
     background-position: 0% 0%;

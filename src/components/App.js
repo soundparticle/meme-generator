@@ -49,11 +49,11 @@ class App extends Component {
     return (
       <main className={styles.app}>
         
-        <section className="cow-say">
+        <section>
           <header>
             <h2>Memes Of The Imagination</h2>
           </header>
-          <p ref={node => this.image = node}></p>
+          {/* <p ref={node => this.image = node}></p> */}
         </section>
         <section>
           <h1>Set Options</h1>
@@ -62,9 +62,13 @@ class App extends Component {
             <label>Add Image (400px)
               url:<Background url={url} onChoose={this.handleBackgroundChoose}/>
             </label>
+            <label>
+              <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+            </label>
+            <label>
+              <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
+            </label>
 
-            <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
-            <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/>
             </label>
