@@ -58,9 +58,11 @@ class App extends Component {
         <section>
           <h1>Set Options</h1>
           <section className="set-options" id="options-group">
+
             <label>Add Image (400px)
-              url:<Background url={url} onChoose={this.handleBackgroundChoose} color={color} textSize={textSize}/>
+              url:<Background url={url} onChoose={this.handleBackgroundChoose}/>
             </label>
+
             <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
             <label>Choose Font Size:
@@ -108,13 +110,11 @@ function Background({ url, onChoose }) {
     <section>
       <label>
         Background:
-        <span>
-          <input type="file" onChange={({ target }) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(target.files[0]);
-            reader.onload = () => onChoose(reader.result);
-          }}/>
-        </span>
+        <input type="file" onChange={({ target }) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(target.files[0]);
+          reader.onload = () => onChoose(reader.result);
+        }}/>
         <span>
           <input value={url} onChange={({ target }) => onChoose(target.value)}/>
         </span>
