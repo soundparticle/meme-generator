@@ -28,7 +28,9 @@ h2 {
 }
 
 #options-group {
+  // display: block;
   margin-left: 80px;
+  flex-direction: column;
   align-content: center;
 }
 
@@ -42,7 +44,7 @@ input {
 }
 
 label {
-  padding-left: 40px;
+  // padding-left: 40px;
 }
 
 button {
@@ -57,15 +59,10 @@ button {
 }
 
 hr {
-  border-width: 2px;
+  border-width: 10px;
   border-color: rgb(255, 247, 0);
   background-color: rgb(255, 247, 0);
   margin: 20px -20px 20px;
-}
-
-p {
-  // max-width: 100px;
-  // max-height: 100px;
 }
 
 .meme {

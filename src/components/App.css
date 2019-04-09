@@ -1,9 +1,7 @@
 :local(.app) {
 
-
   * {
     box-sizing: border-box;
-    // padding: 30px;   
   }
 
   pre {
@@ -24,7 +22,7 @@
   .set-options {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: left;
     // justify-content: space-evenly;
     // flex-direction: column;
   }
