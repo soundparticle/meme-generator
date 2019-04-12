@@ -59,13 +59,13 @@ class App extends Component {
           <section className="set-options" id="options-group">
 
             <label>
-              <Background url={url} onChoose={this.handleBackgroundChoose}/>
-            </label>
-            <label>
               <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
             </label>
             <label>
               <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+            </label>
+            <label>
+              <Background url={url} onChoose={this.handleBackgroundChoose}/>
             </label>
 
             <label>Choose Font Size:
@@ -79,7 +79,7 @@ class App extends Component {
           <button onClick={this.handleExport}>Export Meme</button>
           {/* <hr></hr> */}
           <div>
-            <Meme style={{ color: color }} content={content} url={url} memeHeader={memeHeader} onChange={this.handleColorChange} color={color} textSize={textSize}/>
+            <Meme memeHeader={memeHeader} content={content} url={url} onChange={this.handleColorChange} style={{ color: color }} color={color} textSize={textSize}/>
           </div>
           
         </section> 
@@ -109,22 +109,22 @@ function Meme({ content, url, memeHeader, color, textSize }) {
 // Set Options
 function Background({ url, onChoose }) {
   return (
-    <section>
-      <label>
-        Select Background Image:
-        <div>
-          <input id="url-input" type="file" onChange={({ target }) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(target.files[0]);
-            reader.onload = () => onChoose(reader.result);
-          }} />
-         
-        </div>
-        <span>
-          <input value={url} onChange={({ target }) => onChoose(target.value)}/>
-        </span>
-      </label>
-    </section>
+    
+    <label>
+      Select Background Image:
+      <div>
+        <input value={url} onChange={({ target }) => onChoose(target.value)}/>
+        <input id="url-input" type="file" onChange={({ target }) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(target.files[0]);
+          reader.onload = () => onChoose(reader.result);
+        }} />
+        
+      </div>
+      {/* <span>
+        <input value={url} onChange={({ target }) => onChoose(target.value)}/>
+      </span> */}
+    </label>
   );
 }
 
