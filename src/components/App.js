@@ -14,12 +14,12 @@ class App extends Component {
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
 
-  handleHeaderChange = ({ target }) => {
-    this.setState({ memeHeader: target.value });
+  handleHeaderChange = (memeHeader = '') => {
+    this.setState({ memeHeader });
   };
 
-  handleContentChange = ({ target }) => {
-    this.setState({ content: target.value }); 
+  handleContentChange = (content = '') => {
+    this.setState({ content }); 
   };
   
   handleBackgroundChoose = (url = '') => {
@@ -58,18 +58,16 @@ class App extends Component {
           <h1>Set Options</h1>
           <section className="set-options" id="options-group">
 
-            {/* <label>
+            <label>
               <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
-            </label> */}
-            <label>Meme Header:<input value={memeHeader} onChange={this.handleHeaderChange}/></label>
-
+            </label>
             <label>
               <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             </label>
             <label>
               <Background url={url} onChoose={this.handleBackgroundChoose}/>
             </label>
-            {/* Font and Color select working */}
+
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/>
             </label>
