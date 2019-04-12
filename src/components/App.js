@@ -10,7 +10,7 @@ class App extends Component {
     content: 'Choose your phrase...',
     memeHeader: 'Header text here...',
     color: 'black',
-    textSize: '6',
+    textSize: '3',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
 
@@ -35,8 +35,8 @@ class App extends Component {
   };
   
   handleExport = () => {
-    // const meme = document.getElementById('meme');
-    dom2image.toBlob(this.image)
+    const meme = document.getElementById('meme');
+    dom2image.toBlob(meme)
       .then(blob => {
         fileSaver.saveAs(blob, 'my-meme.png');
       });
@@ -58,14 +58,14 @@ class App extends Component {
           <h1>Set Options</h1>
           <section className="set-options" id="options-group">
 
-            <label>Add Image url: (400 x 600 max)
+            <label>
               <Background url={url} onChoose={this.handleBackgroundChoose}/>
             </label>
             <label>
-              <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+              <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
             </label>
             <label>
-              <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
+              <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             </label>
 
             <label>Choose Font Size:
@@ -88,18 +88,21 @@ class App extends Component {
     );
   }
 }
-
 function Meme({ content, url, memeHeader, color, textSize }) {
-
+  
   return (
-    <div className="meme">
-      <h1 id="meme-header" style={{ color: color }}>        
-        <font size={textSize}>{memeHeader}</font> 
-      </h1>
-      <pre id="meme" className="meme-container" size={textSize}        
-        style={{ background: `url(${url}) no-repeat `, color: color, maxHeight: 400, maxWidth: 600 }}>
-        <font size={textSize}>{content}</font>
-      </pre>
+    <div id="meme" className="meme-container" style={{ background: `url(${url}) no-repeat `, backgroundSize: 'cover' }}>
+      {/* maxWidth: 600, maxHeight: 400 */}
+      <h3 style={{ color: color }}>
+        <font size={textSize}>{memeHeader}</font>
+      </h3>
+      <h4 style={{ color: color }}>
+        <font style={{ color: color }} size={textSize}>{content}</font>
+      </h4>
+      
+      {/* <pre id="meme-pre" size={textSize}       
+        style={{ color: color, maxHeight: 400, maxWidth: 600 }}>
+      </pre> */}
     </div>
   );
 }
@@ -108,7 +111,7 @@ function Background({ url, onChoose }) {
   return (
     <section>
       <label>
-        Select Background:
+        Select Background Image:
         <div>
           <input id="url-input" type="file" onChange={({ target }) => {
             const reader = new FileReader();
@@ -128,7 +131,7 @@ function Background({ url, onChoose }) {
 function Content({ content, onChange }) {
   return (
     <section>      
-      <label >
+      <label>
         Choose Meme Text: 
         <input 
           // style={{ marginLeft: 15 }}

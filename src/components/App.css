@@ -4,6 +4,35 @@
     box-sizing: border-box;
   }
 
+  .set-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+  }
+
+  #meme {
+    // display: flex;
+    // position: absolute;
+    // align-content: center;
+    margin: auto;
+    height: 400px;
+    width: 700px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    // flex-direction: column;
+    // align-items: center;
+    // align-content: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  h4 {
+    text-align: left;
+  }
+
   pre {
     // background-repeat: no-repeat;
     // display: inline-block;
@@ -20,18 +49,4 @@
     border-style: solid;
     border-color: black;
   }
-
-  .set-options {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: left;
-    // justify-content: space-evenly;
-    // flex-direction: column;
-  }
-
-  div {
-    // width: 400px;
-    // height: 400px;
-  }
-
 }
