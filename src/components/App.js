@@ -64,9 +64,11 @@ class App extends Component {
             <label>
               <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             </label>
+
             <label>
               <Background url={url} onChoose={this.handleBackgroundChoose}/>
             </label>
+            {/* <label>Add image (400px) url:<Background url={url} onChoose={this.handleBackgroundChoose}/></label> */}
 
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/>
