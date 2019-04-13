@@ -42,7 +42,6 @@ class App extends Component {
       });
   };
   
-  
   render() {
     const { content, url, memeHeader, color, textSize } = this.state;
 
@@ -51,25 +50,18 @@ class App extends Component {
         <header>
           <h2>Memes Of The Imagination</h2>
         </header>
-        
         <section>
-          {/* <p ref={node => this.image = node}></p> */}
-        
           <h1>Set Options</h1>
           <section className="set-options" id="options-group">
-
             <label>
-              <Header memeHeader={memeHeader} onChange={this.handleHeaderChange} color={color} textSize={textSize}/> 
+              <Header memeHeader={memeHeader} onChange={this.handleHeaderChange}/> 
             </label>
             <label>
               <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             </label>
-
             <label>
               <Background url={url} onChoose={this.handleBackgroundChoose}/>
             </label>
-            {/* <label>Add image (400px) url:<Background url={url} onChoose={this.handleBackgroundChoose}/></label> */}
-
             <label>Choose Font Size:
               <input type="text" value={textSize} onChange={this.handleTextChange}/>
             </label>
@@ -77,41 +69,30 @@ class App extends Component {
               <input type="color" value={color} onChange={this.handleColorChange}/>
             </label>
           </section>
-
           <button onClick={this.handleExport}>Export Meme</button>
-          {/* <hr></hr> */}
           <div>
             <Meme memeHeader={memeHeader} content={content} url={url} onChange={this.handleColorChange} style={{ color: color }} color={color} textSize={textSize}/>
-          </div>
-          
+          </div>          
         </section> 
-
       </main>
     );
   }
 }
 function Meme({ content, url, memeHeader, color, textSize }) {
-  
   return (
     <div id="meme" className="meme-container" style={{ background: `url(${url}) no-repeat `, backgroundSize: 'cover' }}>
-      {/* maxWidth: 600, maxHeight: 400 */}
       <h3 style={{ color: color }}>
         <font size={textSize}>{memeHeader}</font>
       </h3>
       <h4 style={{ color: color }}>
         <font style={{ color: color }} size={textSize}>{content}</font>
       </h4>
-      
-      {/* <pre id="meme-pre" size={textSize}       
-        style={{ color: color, maxHeight: 400, maxWidth: 600 }}>
-      </pre> */}
     </div>
   );
 }
 // Set Options
 function Background({ url, onChoose }) {
   return (
-    
     <label>
       Select Background Image:
       <div>
@@ -120,12 +101,8 @@ function Background({ url, onChoose }) {
           const reader = new FileReader();
           reader.readAsDataURL(target.files[0]);
           reader.onload = () => onChoose(reader.result);
-        }} />
-        
+        }}/>        
       </div>
-      {/* <span>
-        <input value={url} onChange={({ target }) => onChoose(target.value)}/>
-      </span> */}
     </label>
   );
 }
@@ -136,7 +113,6 @@ function Content({ content, onChange }) {
       <label>
         Choose Meme Text: 
         <input 
-          // style={{ marginLeft: 15 }}
           value={content} 
           onChange={({ target }) => onChange(target.value)}
         />
@@ -151,7 +127,6 @@ function Header({ memeHeader, onChange }) {
       <label>
         Choose Header Text: 
         <input
-          // style={{ marginLeft: 9 }} 
           value={memeHeader} 
           onChange={({ target }) => onChange(target.value)}
         />
@@ -159,6 +134,5 @@ function Header({ memeHeader, onChange }) {
     </section>
   );  
 }
-
 
 export default App;
