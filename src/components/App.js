@@ -57,7 +57,7 @@ class App extends Component {
               <Header memeHeader={memeHeader} onChange={this.handleHeaderChange}/> 
             </label>
             <label>
-              <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+              <Content content={content}  onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             </label>
             <label>
               <Background url={url} onChoose={this.handleBackgroundChoose}/>
@@ -113,7 +113,7 @@ function Content({ content, onChange }) {
       <label>
         Choose Meme Text: 
         <input 
-          value={content} 
+          value={content}
           onChange={({ target }) => onChange(target.value)}
         />
       </label>
