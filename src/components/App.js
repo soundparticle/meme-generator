@@ -69,7 +69,9 @@ class App extends Component {
               <input type="color" value={color} onChange={this.handleColorChange}/>
             </label>
           </section>
-          <button onClick={this.handleExport}>Export Meme</button>
+          <div id="button-wrapper">
+            <button onClick={this.handleExport}>Export Meme</button>
+          </div>
           <div>
             <Meme memeHeader={memeHeader} content={content} url={url} onChange={this.handleColorChange} style={{ color: color }} color={color} textSize={textSize}/>
           </div>          
@@ -112,9 +114,10 @@ function Content({ content, onChange }) {
     <section>      
       <label>
         Choose Meme Text: 
-        <input 
+        <input
+          id="meme-input" 
           value={content}
-          
+
           onChange={({ target }) => onChange(target.value)}
         />
       </label>
@@ -128,6 +131,7 @@ function Header({ memeHeader, onChange }) {
       <label>
         Choose Header Text: 
         <input
+          id="header-input"
           value={memeHeader} 
           onChange={({ target }) => onChange(target.value)}
         />

@@ -1,6 +1,6 @@
 
  * {
-  // box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -13,63 +13,73 @@ html {
   background-size: cover;
 }
 
+h1 {
+  font-size: 20px;
+  text-align: center;
+}
 
+h2 {
+  text-align: center;
+  font-size: 40px;
+  font-family: fantasy, Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  color: darkblue;
+  text-shadow: 1px 1px 0px black, 0 0 25px blue, 0 0 10px darkblue;
+}
 
+#options-group {
+  margin-left: 50px;
+  flex-direction: column;
+  align-content: center;
+}
+
+#header-input {
+  margin-left: 4px;
+}
+
+#meme-input {
+  margin-left: 12px;
+}
+
+#button-wrapper {
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: lightgreen;
+  border-radius: 25px;
+  border-width: 1.5px;
+  border-color: black;
+}
+
+input {
+  border-color: black;
+  border-radius: 5px;
+  padding: 2px;
+  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-top: 2px;
+  font-size: 12px;
+}
 
 @media only screen and (min-width: 768px) {
 
   * {
-    // box-sizing: border-box;
-  }
-  
-  html {
-    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-    background-color: rgb(110, 225, 233);
-    background-image: url("https://www.desktopbackground.org/p/2011/03/19/174409_download-texture-clouds-texture-background-clouds-texture_2560x1600_h.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  
-  h1 {
-    font-size: 20px;
-    text-align: center;
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 40px;
-    font-family: fantasy, Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-    color: darkblue;
-    text-shadow: 1px 1px 0px black, 0 0 25px blue, 0 0 10px darkblue;
-  }
-  
-  #options-group {
-    margin-left: 80px;
-    flex-direction: column;
-    align-content: center;
+    box-sizing: border-box;
   }
   
   input {
     border-color: black;
     border-radius: 5px;
     padding: 2px;
-    margin-bottom: 8px;
-    margin-top: 8px;
+    margin-left: 25px;
+    margin-bottom: 4px;
+    margin-top: 4px;
     font-size: 12px;
   }
-  
-  button {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 50%;
-    font-size: 14px;
-    background-color: lightgreen;
-    border-radius: 25px;
-    border-width: 1.5px;
-    border-color: black;
-  }  
 }
 
 
