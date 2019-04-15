@@ -1,29 +1,39 @@
 :local(.app) {
-
   * {
-    box-sizing: border-box;
+    // box-sizing: border-box;
   }
 
-  .set-options {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: left;
+
+
+  
+  @media only screen and (min-width: 768px) {
+
+    * {
+      // box-sizing: border-box;
+    }
+  
+    .set-options {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    #meme {
+      margin: auto;
+      height: 400px;
+      width: 700px;
+      border-width: 2px;
+      border-style: solid;
+    }
+  
+    h3 {
+      text-align: center;
+    }
+  
+    h4 {
+      padding-left: 20px;
+    }   
   }
 
-  #meme {
-    margin: auto;
-    height: 400px;
-    width: 700px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-  }
 
-  h3 {
-    text-align: center;
-  }
-
-  h4 {
-    text-align: left;
-  } 
+  
 }

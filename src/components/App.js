@@ -114,6 +114,7 @@ function Content({ content, onChange }) {
         Choose Meme Text: 
         <input 
           value={content}
+          
           onChange={({ target }) => onChange(target.value)}
         />
       </label>
