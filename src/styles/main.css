@@ -13,6 +13,11 @@ html {
   background-size: cover;
 }
 
+hr {
+  border-width: 2px;
+  border-color: aquamarine;
+}
+
 h1 {
   font-size: 20px;
   text-align: center;
@@ -52,11 +57,11 @@ button {
   background-color: lightgreen;
   border-radius: 25px;
   border-width: 1.5px;
-  border-color: black;
+  border-color: #000000;
 }
 
 input {
-  border-color: black;
+  border-color: #000000;
   border-radius: 5px;
   padding: 2px;
   margin-left: 10px;
@@ -72,7 +77,7 @@ input {
   }
   
   input {
-    border-color: black;
+    border-color: #000000;
     border-radius: 5px;
     padding: 2px;
     margin-left: 25px;

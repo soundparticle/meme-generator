@@ -7,9 +7,9 @@ import styles from './App.css';
 class App extends Component {
   
   state = {
-    content: 'Choose your phrase...',
-    memeHeader: 'Header text here...',
-    color: 'black',
+    content: '',
+    memeHeader: '',
+    color: '#ec131f',
     textSize: '3',
     url:'http://www.vaguebuttrue.com/images/1435713417-RaccoonridesalligatorWEBSITE.jpg' 
   };
@@ -42,9 +42,6 @@ class App extends Component {
       });
   };
   
-  // handleFocus = (event) => event.target.select();
-
-  
   render() {
     const { content, url, memeHeader, color, textSize } = this.state;
 
@@ -52,6 +49,7 @@ class App extends Component {
       <main className={styles.app}>
         <header>
           <h2>Memes Of The Imagination</h2>
+          <hr></hr>
         </header>
         <section>
           <h1>Set Options</h1>
@@ -60,7 +58,7 @@ class App extends Component {
               <Header memeHeader={memeHeader} onChange={this.handleHeaderChange}/> 
             </label>
             <label>
-              <Content content={content} onFocus={this.handleFocus} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+              <Content content={content} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             </label>
             <label>
               <Background url={url} onChoose={this.handleBackgroundChoose}/>
@@ -84,15 +82,6 @@ class App extends Component {
   }
 }
 
-class Input extends React.Component {
-  handleFocus = (event) => event.target.select();
-
-  render() {
-    return (
-      <input type="text" value="Some something" onFocus={this.handleFocus} />
-    );
-  }
-}
 
 function Meme({ content, url, memeHeader, color, textSize }) {
   return (
@@ -123,15 +112,16 @@ function Background({ url, onChoose }) {
   );
 }
 
-function Content({ content, onChange, }) {
+function Content({ content, onChange }) {
+  // const handleFocus = (event) => event.target.select();
   return (
     <section>      
       <label>
         Choose Meme Text: 
         <input
-          id="meme-input"
-          value={content}
+          id="meme-input"          
           // onFocus={handleFocus}
+          value={content}
           onChange={({ target }) => onChange(target.value)}
         />
       </label>
@@ -140,12 +130,14 @@ function Content({ content, onChange, }) {
 }
 
 function Header({ memeHeader, onChange }) {
+  // const handleFocus = (event) => event.target.select();
   return (
     <section>      
       <label>
         Choose Header Text: 
         <input
           id="header-input"
+          // onFocus={handleFocus}
           value={memeHeader} 
           onChange={({ target }) => onChange(target.value)}
         />
