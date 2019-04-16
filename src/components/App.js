@@ -42,6 +42,9 @@ class App extends Component {
       });
   };
   
+  // handleFocus = (event) => event.target.select();
+
+  
   render() {
     const { content, url, memeHeader, color, textSize } = this.state;
 
@@ -57,7 +60,7 @@ class App extends Component {
               <Header memeHeader={memeHeader} onChange={this.handleHeaderChange}/> 
             </label>
             <label>
-              <Content content={content}  onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
+              <Content content={content} onFocus={this.handleFocus} onChange={this.handleContentChange} memeHeader={memeHeader} color={color} textSize={textSize}/>
             </label>
             <label>
               <Background url={url} onChoose={this.handleBackgroundChoose}/>
@@ -80,6 +83,17 @@ class App extends Component {
     );
   }
 }
+
+class Input extends React.Component {
+  handleFocus = (event) => event.target.select();
+
+  render() {
+    return (
+      <input type="text" value="Some something" onFocus={this.handleFocus} />
+    );
+  }
+}
+
 function Meme({ content, url, memeHeader, color, textSize }) {
   return (
     <div id="meme" className="meme-container" style={{ background: `url(${url}) no-repeat center center`, backgroundSize: 'cover' }}>
@@ -109,15 +123,15 @@ function Background({ url, onChoose }) {
   );
 }
 
-function Content({ content, onChange }) {
+function Content({ content, onChange, }) {
   return (
     <section>      
       <label>
         Choose Meme Text: 
         <input
-          id="meme-input" 
+          id="meme-input"
           value={content}
-
+          // onFocus={handleFocus}
           onChange={({ target }) => onChange(target.value)}
         />
       </label>
@@ -139,5 +153,6 @@ function Header({ memeHeader, onChange }) {
     </section>
   );  
 }
+
 
 export default App;
