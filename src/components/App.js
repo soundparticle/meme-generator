@@ -82,7 +82,7 @@ class App extends Component {
 }
 function Meme({ content, url, memeHeader, color, textSize }) {
   return (
-    <div id="meme" className="meme-container" style={{ background: `url(${url}) no-repeat `, backgroundSize: 'cover' }}>
+    <div id="meme" className="meme-container" style={{ background: `url(${url}) no-repeat center center`, backgroundSize: 'cover' }}>
       <h3 style={{ color: color }}>
         <font size={textSize}>{memeHeader}</font>
       </h3>
